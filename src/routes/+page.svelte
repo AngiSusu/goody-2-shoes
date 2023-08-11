@@ -1,12 +1,14 @@
 <script>
-	import Counter from './Counter.svelte';
+	import InputForm from './InputForm.svelte';
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
+
+
 </script>
 
 <svelte:head>
 	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<meta name="description" content="Goody 2 Shoes" />
 </svelte:head>
 
 <section>
@@ -18,14 +20,16 @@
 			</picture>
 		</span>
 
-		to your new<br />SvelteKit app
+		goody 2 shoes
 	</h1>
-
 	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
+		it's called <strong>goody 2 shoes</strong> because all the calculations are factors of 2. (haha.)
+	</h2>
+	<h2>
+		how many <strong>shoes</strong> do you want to enter?
 	</h2>
 
-	<Counter />
+	<InputForm />
 </section>
 
 <style>
