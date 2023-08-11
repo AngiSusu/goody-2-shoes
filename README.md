@@ -1,27 +1,35 @@
-# SvelteKit Demo app
+# goody2shoes
 
-The official demo app for SvelteKit, hosted on Vercel.
+A very simple assessment app made for Transcendent Endeavors.
+Created with Sveltekit and hosted on Vercel.
 
-## Deploy Your Own
+# prompt
+Create a web app that…
+a. Allows you to input a number n into a client input field
+b. Stores n in a database
+c. Returns n * 2 to the client so that the user can see their number input multiplied
+by 2
+d. Stores (n * 2)^2 in the database
+e. Returns (n * 2)^2 to the client so that the user can see their number input
+multiplied by 2 and that result raised to the 2 power.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fvercel%2Ftree%2Fmain%2Fexamples%2Fsveltekit-1&project-name=sveltekit-vercel&repository-name=sveltekit-vercel&demo-title=SvelteKit%20%2B%20Vercel&demo-url=https%3A%2F%2Fsveltekit-template.vercel.app%2F)
+## it's live and in operation!
 
-_Live Example: https://sveltekit-template.vercel.app_
+Visit this link!
+https://goody-2-shoes.vercel.app/
 
-## Developing
+## running in dev mode
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+vercel dev
 ```
+Please don't use `npm run dev`, there are some known issues with it that Vercel is working on.
 
-## Building
+## building
 
-To create a production version of your app:
+To create a production version just because:
 
 ```bash
 npm run build
@@ -29,8 +37,4 @@ npm run build
 
 You can preview the production build with `npm run preview`.
 
-## Speed Insights
 
-Once deployed on Vercel, you can benefit from [Speed Insights](https://vercel.com/docs/concepts/speed-insights) simply by navigating to Vercel's dashboard, clicking on the 'Speed Insights' tab, and enabling the product.
-
-You will get data once your application will be re-deployed and will receive visitors.

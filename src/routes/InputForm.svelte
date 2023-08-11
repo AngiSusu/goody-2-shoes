@@ -1,42 +1,55 @@
-<script>
-	let inputValue = '';
-	let resultx2 = '';
-    let resultx2squared = '';
+<script lang="ts">
+	let inputValue: number | null = null;
+	let resultx2: number;
+	let resultx2squared: number;
+	let error: string;
+	let show: boolean = false;
 
-    // this is the function that multiplies our shoes!
-	async function calculate() {
-		const response = await fetch('/api/calculate', {
+	async function post() {
+		show = false;
+		if (inputValue === null) {
+			error = 'You need to put in some shoes!';
+			return false;
+		}else{
+            error = ""
+        }
+		await fetch('/api/calculate', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({ inputValue })
 		});
-
-		const data = await response.json();
-		resultx2 = data.resultx2;
-        resultx2squared = data.resultx2squared;
-
-		// Fetch the result again to display the stored value
 		const storedResultResponse = await fetch('/api/calculate');
 		const storedResultData = await storedResultResponse.json();
-		resultx2 = storedResultData.resultx2;
-        resultx2squared = storedResultData.resultx2squared;
+		if (storedResultData.error) {
+			error = storedResultData.error;
+		} else {
+			resultx2 = storedResultData.resultx2;
+			resultx2squared = storedResultData.resultx2squared;
+			show = true;
+		}
 	}
 </script>
 
 <div>
 	<input name="numberInput" type="number" id="numberInput" bind:value={inputValue} />
-    <button on:click={()=> {
-        calculate();
-    }}>calculate</button>
+	<button
+		on:click={() => {   
+			post(); 
+		}}>magical shoe button</button
+	>
 
-	{#if resultx2}
-		<p>Shoes x 2: {resultx2}</p>
-        <p>(Shoes x 2)^2: {resultx2squared}</p>
+	{#if show}
+		<p>Shoes x 2: {resultx2} shoes</p>
+		<p>(Shoes x 2)^2: {resultx2squared} shoes</p>
+		<p>good lord, that's a lot of shoes!</p>
+	{/if}
+	{#if error}
+		<p>{error}</p>
 	{/if}
 </div>
 
 <style>
-	/* Add your styles here */
+	/* Add styles here */
 </style>
